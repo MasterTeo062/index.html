@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United Apex FC</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --apex-red: #C8102E;
+    --apex-gold: #D4A017;
+    --apex-dark: #0A0A0A;
+    --apex-charcoal: #141414;
+    --apex-mid: #1E1E1E;
+    --apex-light: #F4F0E8;
+    --apex-muted: #888;
+    --apex-border: rgba(200,16,46,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--apex-dark);
+    color: var(--apex-light);
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--apex-border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-crest {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--apex-light);
+  }
+
+  .nav-brand span { color: var(--apex-red); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--apex-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--apex-light); }
+
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--apex-dark);
+    background: var(--apex-red);
+    padding: 10px 24px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: #a80d25; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 48px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(200,16,46,0.12) 0%, transparent 70%),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 79px,
+        rgba(255,255,255,0.02) 79px,
+        rgba(255,255,255,0.02) 80px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 79px,
+        rgba(255,255,255,0.02) 79px,
+        rgba(255,255,255,0.02) 80px
+      ),
+      var(--apex-dark);
+  }
+
+  .hero-pitch {
+    position: absolute;
+    bottom: 0;
+    right: -5%;
+    width: 60%;
+    height: 90%;
+    opacity: 0.04;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    animation: fadeUp 1s ease both;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--apex-red);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--apex-red);
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 10vw, 128px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    color: var(--apex-light);
+    margin-bottom: 28px;
+  }
+
+  .hero-title .accent { color: var(--apex-red); }
+
+  .hero-sub {
+    font-size: 18px;
+    color: rgba(244,240,232,0.6);
+    max-width: 480px;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--apex-red);
+    color: var(--apex-light);
+    padding: 16px 40px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: #a80d25; transform: translateY(-1px); }
+
+  .btn-outline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid rgba(244,240,232,0.3);
+    color: var(--apex-light);
+    padding: 16px 40px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: var(--apex-light); transform: translateY(-1px); }
+
+  .hero-stats {
+    position: absolute;
+    right: 48px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    z-index: 2;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+
+  .hero-stat-item { text-align: right; }
+
+  .hero-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--apex-light);
+  }
+
+  .hero-stat-num span { color: var(--apex-red); }
+
+  .hero-stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--apex-muted);
+  }
+
+  /* SECTION COMMONS */
+  section { padding: 100px 48px; }
+
+  .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--apex-red);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 5vw, 64px);
+    letter-spacing: 2px;
+    line-height: 1;
+    color: var(--apex-light);
+    margin-bottom: 40px;
+  }
+
+  /* FIXTURES */
+  .fixtures { background: var(--apex-charcoal); }
+
+  .fixtures-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  .fixtures-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .fixture-row {
+    display: grid;
+    grid-template-columns: 160px 1fr auto 1fr 80px;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 32px;
+    background: var(--apex-mid);
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .fixture-row:hover {
+    border-left-color: var(--apex-red);
+    background: rgba(200,16,46,0.06);
+  }
+
+  .fixture-row.upcoming { border-left-color: var(--apex-red); }
+
+  .fixture-date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--apex-muted);
+  }
+
+  .fixture-team {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .fixture-home { text-align: right; }
+  .fixture-away { text-align: left; }
+
+  .fixture-score {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    text-align: center;
+    color: var(--apex-light);
+    min-width: 80px;
+  }
+
+  .fixture-score.win { color: #4CAF50; }
+  .fixture-score.loss { color: var(--apex-red); }
+  .fixture-score.upcoming { color: var(--apex-muted); font-size: 16px; letter-spacing: 2px; }
+
+  .fixture-comp {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--apex-muted);
+    text-align: right;
+  }
+
+  /* SQUAD */
+  .squad { background: var(--apex-dark); }
+
+  .squad-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2px;
+  }
+
+  .player-card {
+    background: var(--apex-charcoal);
+    padding: 28px 20px 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .player-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--apex-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .player-card:hover::before { transform: scaleX(1); }
+  .player-card:hover { background: var(--apex-mid); }
+
+  .player-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+    color: rgba(200,16,46,0.2);
+    position: absolute;
+    top: 12px;
+    right: 16px;
+  }
+
+  .player-pos {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--apex-red);
+    margin-bottom: 6px;
+  }
+
+  .player-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--apex-light);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .player-nationality {
+    font-size: 12px;
+    color: var(--apex-muted);
+    font-style: italic;
+  }
+
+  /* TABLE */
+  .league-table { background: var(--apex-charcoal); }
+
+  .table-wrap { overflow-x: auto; }
+
+  table.standings {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+  }
+
+  .standings th {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--apex-muted);
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .standings th:first-child,
+  .standings th:nth-child(2) { text-align: left; }
+
+  .standings td {
+    padding: 14px 16px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: rgba(244,240,232,0.8);
+  }
+
+  .standings td:first-child { color: var(--apex-muted); font-size: 13px; }
+  .standings td:nth-child(2) { text-align: left; font-weight: 600; letter-spacing: 0.5px; }
+
+  .standings tr.highlight td {
+    background: rgba(200,16,46,0.08);
+    color: var(--apex-light);
+  }
+
+  .standings tr.highlight td:nth-child(2) { color: var(--apex-red); }
+
+  .pts { font-family: 'Bebas Neue', sans-serif; font-size: 20px !important; color: var(--apex-light) !important; }
+
+  .form-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 1px;
+  }
+  .form-dot.w { background: #4CAF50; }
+  .form-dot.d { background: #888; }
+  .form-dot.l { background: var(--apex-red); }
+
+  /* NEWS */
+  .news { background: var(--apex-dark); }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2px;
+  }
+
+  .news-card {
+    background: var(--apex-charcoal);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .news-card:hover { background: var(--apex-mid); }
+
+  .news-card.featured { grid-row: span 2; padding: 40px 36px; }
+
+  .news-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--apex-red);
+  }
+
+  .news-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    color: var(--apex-light);
+  }
+
+  .news-card.featured .news-headline { font-size: 38px; }
+  .news-card:not(.featured) .news-headline { font-size: 22px; }
+
+  .news-excerpt {
+    font-size: 14px;
+    color: rgba(244,240,232,0.55);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .news-meta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--apex-muted);
+    margin-top: auto;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #060606;
+    padding: 64px 48px 32px;
+    border-top: 1px solid var(--apex-border);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 32px;
+  }
+
+  .footer-brand { display: flex; flex-direction: column; gap: 16px; }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--apex-light);
+  }
+
+  .footer-logo span { color: var(--apex-red); }
+
+  .footer-tagline {
+    font-size: 14px;
+    color: var(--apex-muted);
+    font-style: italic;
+    max-width: 240px;
+    line-height: 1.5;
+  }
+
+  .footer-col h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--apex-muted);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-col a {
+    font-size: 14px;
+    color: rgba(244,240,232,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--apex-light); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--apex-muted);
+    font-family: 'Barlow Condensed', sans-serif;
+    letter-spacing: 1px;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-socials a {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--apex-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-socials a:hover { color: var(--apex-red); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* DIVIDER */
+  .red-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--apex-red);
+    margin-bottom: 32px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="nav-crest" viewBox="0 0 680 460" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(340, 220)">
+        <polygon fill="#D4A017" points="0,-222 -148,-148 -148,44 0,222 148,44 148,-148" opacity="0.25"/>
+        <path fill="#141414" d="M0,-210 L-140,-140 L-140,40 Q-140,100 -70,150 L0,200 L70,150 Q140,100 140,40 L140,-140 Z"/>
+        <path fill="#C8102E" d="M0,-196 L-128,-132 L-128,38 Q-128,92 -64,138 L0,184 L64,138 Q128,92 128,38 L128,-132 Z"/>
+        <path fill="#8B0B1F" d="M0,-196 L0,184 L64,138 Q128,92 128,38 L128,-132 Z"/>
+        <path fill="#141414" d="M-128,-132 L128,-132 L128,-108 L-128,-108 Z"/>
+        <path fill="#D4A017" d="M-128,-108 L128,-108 L128,-96 L-128,-96 Z"/>
+        <path fill="#141414" d="M-80,20 L80,20 L80,44 L-80,44 Z"/>
+        <path fill="#D4A017" d="M-80,44 L80,44 L80,56 L-80,56 Z"/>
+        <polygon fill="#D4A017" points="0,-80 10,-52 40,-52 17,-34 26,-6 0,-24 -26,-6 -17,-34 -40,-52 -10,-52"/>
+        <polygon fill="#141414" points="0,-72 8,-50 32,-50 14,-36 21,-14 0,-28 -21,-14 -14,-36 -32,-50 -8,-50"/>
+        <path fill="#D4A017" d="M-18,-68 L-8,-44 L-32,-44 L-14,-32 L-20,-10 L0,-22 L20,-10 L14,-32 L32,-44 L8,-44 Z" opacity="0.9"/>
+        <polygon fill="#F4F0E8" points="0,-63 6,-47 22,-47 10,-38 14,-22 0,-31 -14,-22 -10,-38 -22,-47 -6,-47" opacity="0.9"/>
+        <text x="0" y="12" font-family="'Bebas Neue', Arial Black, sans-serif" font-size="26" fill="#F4F0E8" text-anchor="middle" letter-spacing="3">UNITED</text>
+        <text x="0" y="36" font-family="'Bebas Neue', Arial Black, sans-serif" font-size="26" fill="#D4A017" text-anchor="middle" letter-spacing="3">APEX</text>
+        <text x="0" y="72" font-family="'Barlow Condensed', Arial, sans-serif" font-size="11" font-weight="600" fill="#D4A017" text-anchor="middle" letter-spacing="4">FOOTBALL CLUB</text>
+        <text x="0" y="90" font-family="'Barlow Condensed', Arial, sans-serif" font-size="10" font-weight="600" fill="#F4F0E8" text-anchor="middle" letter-spacing="3">Est. 2026</text>
+        <path fill="none" stroke="#D4A017" stroke-width="2.5" d="M0,-210 L-140,-140 L-140,40 Q-140,100 -70,150 L0,200 L70,150 Q140,100 140,40 L140,-140 Z"/>
+      </g>
+    </svg>
+    <span class="nav-brand">United <span>Apex</span> FC</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#fixtures">Fixtures</a></li>
+    <li><a href="#squad">Squad</a></li>
+    <li><a href="#table">Table</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#club">Club</a></li>
+  </ul>
+  <a href="#" class="nav-cta">Get Tickets</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-pitch" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="10" y="10" width="580" height="480" stroke="white" stroke-width="2" fill="none"/>
+    <line x1="10" y1="250" x2="590" y2="250" stroke="white" stroke-width="2"/>
+    <circle cx="300" cy="250" r="60" stroke="white" stroke-width="2" fill="none"/>
+    <circle cx="300" cy="250" r="5" fill="white"/>
+    <rect x="10" y="170" width="90" height="160" stroke="white" stroke-width="2" fill="none"/>
+    <rect x="500" y="170" width="90" height="160" stroke="white" stroke-width="2" fill="none"/>
+    <rect x="10" y="205" width="45" height="90" stroke="white" stroke-width="2" fill="none"/>
+    <rect x="545" y="205" width="45" height="90" stroke="white" stroke-width="2" fill="none"/>
+    <circle cx="55" cy="250" r="30" stroke="white" stroke-width="2" fill="none"/>
+    <circle cx="545" cy="250" r="30" stroke="white" stroke-width="2" fill="none"/>
+    <line x1="300" y1="10" x2="300" y2="490" stroke="white" stroke-width="1" stroke-dasharray="8,6" opacity="0.3"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Founded 1987 · The Apex Arena</p>
+    <h1 class="hero-title">Rise To The <span class="accent">Apex</span></h1>
+    <p class="hero-sub">Strength, unity, ambition. We play for the badge, for the city, for every one of you.</p>
+    <div class="hero-buttons">
+      <a href="#fixtures" class="btn-primary">Next Match</a>
+      <a href="#squad" class="btn-outline">Meet the Squad</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">3<span>rd</span></div>
+      <div class="hero-stat-label">League Position</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">14<span>W</span></div>
+      <div class="hero-stat-label">Season Wins</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">37<span>+</span></div>
+      <div class="hero-stat-label">Years of History</div>
+    </div>
+  </div>
+</section>
+
+<!-- FIXTURES -->
+<section class="fixtures" id="fixtures">
+  <div class="fixtures-header reveal">
+    <div>
+      <p class="section-eyebrow">Schedule</p>
+      <h2 class="section-title">Fixtures &amp; Results</h2>
+    </div>
+    <a href="#" class="btn-outline">Full Schedule</a>
+  </div>
+
+  <div class="fixtures-list reveal">
+    <div class="fixture-row">
+      <div class="fixture-date">Sat 24 May · 15:00</div>
+      <div class="fixture-team fixture-home">Westgate United</div>
+      <div class="fixture-score loss">2 – 3</div>
+      <div class="fixture-team fixture-away">United Apex FC</div>
+      <div class="fixture-comp">League</div>
+    </div>
+    <div class="fixture-row">
+      <div class="fixture-date">Tue 20 May · 19:45</div>
+      <div class="fixture-team fixture-home">United Apex FC</div>
+      <div class="fixture-score win">4 – 1</div>
+      <div class="fixture-team fixture-away">Northcliff FC</div>
+      <div class="fixture-comp">Cup QF</div>
+    </div>
+    <div class="fixture-row">
+      <div class="fixture-date">Sat 17 May · 15:00</div>
+      <div class="fixture-team fixture-home">United Apex FC</div>
+      <div class="fixture-score win">2 – 0</div>
+      <div class="fixture-team fixture-away">Riverton City</div>
+      <div class="fixture-comp">League</div>
+    </div>
+    <div class="fixture-row upcoming">
+      <div class="fixture-date">Sat 7 Jun · 15:00</div>
+      <div class="fixture-team fixture-home">United Apex FC</div>
+      <div class="fixture-score upcoming">vs</div>
+      <div class="fixture-team fixture-away">FC Harland</div>
+      <div class="fixture-comp">League</div>
+    </div>
+    <div class="fixture-row">
+      <div class="fixture-date">Sat 14 Jun · 15:00</div>
+      <div class="fixture-team fixture-home">Thornwood AFC</div>
+      <div class="fixture-score upcoming">vs</div>
+      <div class="fixture-team fixture-away">United Apex FC</div>
+      <div class="fixture-comp">Cup SF</div>
+    </div>
+  </div>
+</section>
+
+<!-- SQUAD -->
+<section class="squad" id="squad">
+  <div class="reveal">
+    <p class="section-eyebrow">2024/25 Season</p>
+    <h2 class="section-title">The Squad</h2>
+    <div class="red-divider"></div>
+  </div>
+
+  <div class="squad-grid reveal">
+    <div class="player-card">
+      <div class="player-number">1</div>
+      <div class="player-pos">Goalkeeper</div>
+      <div class="player-name">Marcus<br>Holden</div>
+      <div class="player-nationality">England</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">5</div>
+      <div class="player-pos">Centre Back</div>
+      <div class="player-name">Diego<br>Varela</div>
+      <div class="player-nationality">Spain</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">6</div>
+      <div class="player-pos">Centre Back</div>
+      <div class="player-name">Tobias<br>Kraft</div>
+      <div class="player-nationality">Germany</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">3</div>
+      <div class="player-pos">Left Back</div>
+      <div class="player-name">Jordan<br>Mwamba</div>
+      <div class="player-nationality">DR Congo</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">2</div>
+      <div class="player-pos">Right Back</div>
+      <div class="player-name">Aaron<br>Finch</div>
+      <div class="player-nationality">Australia</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">8</div>
+      <div class="player-pos">Midfielder</div>
+      <div class="player-name">Callum<br>Reid</div>
+      <div class="player-nationality">Scotland</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">4</div>
+      <div class="player-pos">Midfielder</div>
+      <div class="player-name">Luca<br>Ferretti</div>
+      <div class="player-nationality">Italy</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">10</div>
+      <div class="player-pos">Attacking Mid</div>
+      <div class="player-name">Emre<br>Yilmaz</div>
+      <div class="player-nationality">Türkiye</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">7</div>
+      <div class="player-pos">Right Wing</div>
+      <div class="player-name">Theo<br>Laurent</div>
+      <div class="player-nationality">France</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">11</div>
+      <div class="player-pos">Left Wing</div>
+      <div class="player-name">Kwame<br>Asante</div>
+      <div class="player-nationality">Ghana</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">9</div>
+      <div class="player-pos">Striker</div>
+      <div class="player-name">Viktor<br>Sorokin</div>
+      <div class="player-nationality">Ukraine</div>
+    </div>
+    <div class="player-card">
+      <div class="player-number">19</div>
+      <div class="player-pos">Striker</div>
+      <div class="player-name">Samuel<br>Okafor</div>
+      <div class="player-nationality">Nigeria</div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAGUE TABLE -->
+<section class="league-table" id="table">
+  <div class="reveal">
+    <p class="section-eyebrow">Premier Division</p>
+    <h2 class="section-title">League Table</h2>
+  </div>
+  <div class="table-wrap reveal">
+    <table class="standings">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Club</th>
+          <th>P</th>
+          <th>W</th>
+          <th>D</th>
+          <th>L</th>
+          <th>GD</th>
+          <th>Form</th>
+          <th>Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Thornwood AFC</td>
+          <td>33</td><td>21</td><td>6</td><td>6</td><td>+28</td>
+          <td>
+            <span class="form-dot w"></span><span class="form-dot w"></span><span class="form-dot d"></span><span class="form-dot w"></span><span class="form-dot w"></span>
+          </td>
+          <td class="pts">69</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>FC Harland</td>
+          <td>33</td><td>19</td><td>7</td><td>7</td><td>+19</td>
+          <td>
+            <span class="form-dot w"></span><span class="form-dot l"></span><span class="form-dot w"></span><span class="form-dot d"></span><span class="form-dot w"></span>
+          </td>
+          <td class="pts">64</td>
+        </tr>
+        <tr class="highlight">
+          <td>3</td>
+          <td>United Apex FC</td>
+          <td>33</td><td>18</td><td>7</td><td>8</td><td>+17</td>
+          <td>
+            <span class="form-dot l"></span><span class="form-dot w"></span><span class="form-dot w"></span><span class="form-dot w"></span><span class="form-dot d"></span>
+          </td>
+          <td class="pts">61</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Westgate United</td>
+          <td>33</td><td>16</td><td>9</td><td>8</td><td>+11</td>
+          <td>
+            <span class="form-dot w"></span><span class="form-dot d"></span><span class="form-dot w"></span><span class="form-dot l"></span><span class="form-dot d"></span>
+          </td>
+          <td class="pts">57</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Riverton City</td>
+          <td>33</td><td>14</td><td>8</td><td>11</td><td>+4</td>
+          <td>
+            <span class="form-dot l"></span><span class="form-dot l"></span><span class="form-dot w"></span><span class="form-dot d"></span><span class="form-dot w"></span>
+          </td>
+          <td class="pts">50</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Northcliff FC</td>
+          <td>33</td><td>11</td><td>9</td><td>13</td><td>-8</td>
+          <td>
+            <span class="form-dot l"></span><span class="form-dot d"></span><span class="form-dot l"></span><span class="form-dot l"></span><span class="form-dot d"></span>
+          </td>
+          <td class="pts">42</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news" id="news">
+  <div class="reveal">
+    <p class="section-eyebrow">Latest</p>
+    <h2 class="section-title">Club News</h2>
+  </div>
+
+  <div class="news-grid reveal">
+    <a href="#" class="news-card featured">
+      <div class="news-tag">Match Report</div>
+      <h3 class="news-headline">Sorokin Hat-Trick Fires Apex to Cup Semi-Final</h3>
+      <p class="news-excerpt">Viktor Sorokin produced a stunning individual display against Northcliff FC, netting three goals in 22 second-half minutes to secure an emphatic quarter-final victory and set up a mouthwatering last-four tie against rivals Thornwood.</p>
+      <div class="news-meta">20 May 2025 · Cup Quarter-Final</div>
+    </a>
+    <a href="#" class="news-card">
+      <div class="news-tag">Transfer</div>
+      <h3 class="news-headline">Club Signs Young Sensation Kwame Asante</h3>
+      <p class="news-excerpt">The Ghanaian winger arrives from FC Accra Stars on a four-year deal.</p>
+      <div class="news-meta">18 May 2025</div>
+    </a>
+    <a href="#" class="news-card">
+      <div class="news-tag">Interview</div>
+      <h3 class="news-headline">"We Believe in the Title Race" — Manager Quinn</h3>
+      <p class="news-excerpt">Head coach Brendan Quinn speaks on closing the gap at the top.</p>
+      <div class="news-meta">16 May 2025</div>
+    </a>
+    <a href="#" class="news-card">
+      <div class="news-tag">Community</div>
+      <h3 class="news-headline">Apex Foundation Opens New Youth Training Hub</h3>
+      <p class="news-excerpt">Over 200 local kids will benefit from the new facility launching this summer.</p>
+      <div class="news-meta">12 May 2025</div>
+    </a>
+    <a href="#" class="news-card">
+      <div class="news-tag">Kit</div>
+      <h3 class="news-headline">2025/26 Home Kit Revealed — Bold New Era</h3>
+      <p class="news-excerpt">The new strip pays homage to the club's founding colours with a modern edge.</p>
+      <div class="news-meta">9 May 2025</div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="club">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">United <span>Apex</span> FC</div>
+      <p class="footer-tagline">"Rise to the Apex" — Founded 2026, The Apex Arena, Capacity 24,500.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Club</h4>
+      <ul>
+        <li><a href="#">History</a></li>
+        <li><a href="#">Management</a></li>
+        <li><a href="#">Stadium</a></li>
+        <li><a href="#">Partners</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Fans</h4>
+      <ul>
+        <li><a href="#">Tickets</a></li>
+        <li><a href="#">Membership</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Away Travel</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Media</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Safeguarding</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 United Apex FC. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
