@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
     --apex-red: #C8102E;
     --apex-gold: #D4A017;
@@ -18,631 +17,116 @@
     --apex-muted: #888;
     --apex-border: rgba(200,16,46,0.25);
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--apex-dark);
-    color: var(--apex-light);
-    font-family: 'Barlow', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+  body { background: var(--apex-dark); color: var(--apex-light); font-family: 'Barlow', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
   /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 48px;
-    height: 64px;
-    background: rgba(10,10,10,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--apex-border);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-  }
-
-  .nav-crest {
-    width: 38px;
-    height: 38px;
-  }
-
-  .nav-brand {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 2px;
-    color: var(--apex-light);
-  }
-
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 64px; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--apex-border); }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-crest { width: 38px; height: 38px; }
+  .nav-brand { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--apex-light); }
   .nav-brand span { color: var(--apex-red); }
-
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--apex-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--apex-muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--apex-light); }
-
-  .nav-cta {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--apex-dark);
-    background: var(--apex-red);
-    padding: 10px 24px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
+  .nav-cta { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--apex-light); background: var(--apex-red); padding: 10px 24px; text-decoration: none; transition: background 0.2s; }
   .nav-cta:hover { background: #a80d25; }
 
   /* HERO */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    padding: 0 48px;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(200,16,46,0.12) 0%, transparent 70%),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 79px,
-        rgba(255,255,255,0.02) 79px,
-        rgba(255,255,255,0.02) 80px
-      ),
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 79px,
-        rgba(255,255,255,0.02) 79px,
-        rgba(255,255,255,0.02) 80px
-      ),
-      var(--apex-dark);
-  }
-
-  .hero-pitch {
-    position: absolute;
-    bottom: 0;
-    right: -5%;
-    width: 60%;
-    height: 90%;
-    opacity: 0.04;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 680px;
-    animation: fadeUp 1s ease both;
-  }
-
-  .hero-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--apex-red);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px;
-    height: 2px;
-    background: var(--apex-red);
-  }
-
-  .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(72px, 10vw, 128px);
-    line-height: 0.9;
-    letter-spacing: 2px;
-    color: var(--apex-light);
-    margin-bottom: 28px;
-  }
-
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding: 0 48px; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(200,16,46,0.12) 0%, transparent 70%), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.02) 79px, rgba(255,255,255,0.02) 80px), repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.02) 79px, rgba(255,255,255,0.02) 80px), var(--apex-dark); }
+  .hero-pitch { position: absolute; bottom: 0; right: -5%; width: 60%; height: 90%; opacity: 0.04; }
+  .hero-content { position: relative; z-index: 2; max-width: 680px; animation: fadeUp 1s ease both; }
+  .hero-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--apex-red); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 2px; background: var(--apex-red); }
+  .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(72px, 10vw, 128px); line-height: 0.9; letter-spacing: 2px; color: var(--apex-light); margin-bottom: 28px; }
   .hero-title .accent { color: var(--apex-red); }
-
-  .hero-sub {
-    font-size: 18px;
-    color: rgba(244,240,232,0.6);
-    max-width: 480px;
-    margin-bottom: 40px;
-    font-style: italic;
-  }
-
-  .hero-buttons {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: var(--apex-red);
-    color: var(--apex-light);
-    padding: 16px 40px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-
+  .hero-sub { font-size: 18px; color: rgba(244,240,232,0.6); max-width: 480px; margin-bottom: 40px; font-style: italic; }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: var(--apex-red); color: var(--apex-light); padding: 16px 40px; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
   .btn-primary:hover { background: #a80d25; transform: translateY(-1px); }
-
-  .btn-outline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border: 1px solid rgba(244,240,232,0.3);
-    color: var(--apex-light);
-    padding: 16px 40px;
-    text-decoration: none;
-    transition: border-color 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-
+  .btn-outline { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(244,240,232,0.3); color: var(--apex-light); padding: 16px 40px; text-decoration: none; transition: border-color 0.2s, transform 0.15s; display: inline-block; }
   .btn-outline:hover { border-color: var(--apex-light); transform: translateY(-1px); }
-
-  .hero-stats {
-    position: absolute;
-    right: 48px;
-    bottom: 80px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    z-index: 2;
-    animation: fadeUp 1s 0.3s ease both;
-  }
-
+  .hero-stats { position: absolute; right: 48px; bottom: 80px; display: flex; flex-direction: column; gap: 32px; z-index: 2; animation: fadeUp 1s 0.3s ease both; }
   .hero-stat-item { text-align: right; }
-
-  .hero-stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 52px;
-    line-height: 1;
-    color: var(--apex-light);
-  }
-
+  .hero-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1; color: var(--apex-light); }
   .hero-stat-num span { color: var(--apex-red); }
-
-  .hero-stat-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--apex-muted);
-  }
+  .hero-stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--apex-muted); }
 
   /* SECTION COMMONS */
   section { padding: 100px 48px; }
-
-  .section-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--apex-red);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(42px, 5vw, 64px);
-    letter-spacing: 2px;
-    line-height: 1;
-    color: var(--apex-light);
-    margin-bottom: 40px;
-  }
+  .section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--apex-red); margin-bottom: 12px; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 5vw, 64px); letter-spacing: 2px; line-height: 1; color: var(--apex-light); margin-bottom: 40px; }
+  .red-divider { width: 48px; height: 3px; background: var(--apex-red); margin-bottom: 32px; }
+  .empty-state { background: var(--apex-charcoal); padding: 64px; text-align: center; }
+  .empty-state-title { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--apex-muted); letter-spacing: 2px; }
+  .empty-state-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 2px; color: var(--apex-muted); margin-top: 10px; text-transform: uppercase; }
 
   /* FIXTURES */
   .fixtures { background: var(--apex-charcoal); }
+  .fixtures-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; }
+  .fixtures-list { display: flex; flex-direction: column; gap: 2px; }
+  .fixture-row { display: grid; grid-template-columns: 160px 1fr auto 1fr 80px; align-items: center; gap: 16px; padding: 20px 32px; background: var(--apex-mid); border-left: 3px solid transparent; transition: border-color 0.2s, background 0.2s; }
+  .fixture-row:hover { border-left-color: var(--apex-red); background: rgba(200,16,46,0.06); }
 
-  .fixtures-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 48px;
-  }
+  /* AGE GROUPS */
+  .age-groups { background: var(--apex-dark); }
+  .age-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 2px; }
+  .age-card { background: var(--apex-charcoal); padding: 32px 24px; position: relative; overflow: hidden; transition: background 0.2s; }
+  .age-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--apex-red); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .age-card:hover::before { transform: scaleX(1); }
+  .age-card:hover { background: var(--apex-mid); }
+  .age-label { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--apex-light); line-height: 1; }
+  .age-desc { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--apex-muted); margin-top: 8px; }
+  .age-status { display: inline-block; margin-top: 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--apex-red); border: 1px solid var(--apex-red); padding: 4px 10px; }
 
-  .fixtures-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .fixture-row {
-    display: grid;
-    grid-template-columns: 160px 1fr auto 1fr 80px;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 32px;
-    background: var(--apex-mid);
-    border-left: 3px solid transparent;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .fixture-row:hover {
-    border-left-color: var(--apex-red);
-    background: rgba(200,16,46,0.06);
-  }
-
-  .fixture-row.upcoming { border-left-color: var(--apex-red); }
-
-  .fixture-date {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    letter-spacing: 1px;
-    color: var(--apex-muted);
-  }
-
-  .fixture-team {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .fixture-home { text-align: right; }
-  .fixture-away { text-align: left; }
-
-  .fixture-score {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 3px;
-    text-align: center;
-    color: var(--apex-light);
-    min-width: 80px;
-  }
-
-  .fixture-score.win { color: #4CAF50; }
-  .fixture-score.loss { color: var(--apex-red); }
-  .fixture-score.upcoming { color: var(--apex-muted); font-size: 16px; letter-spacing: 2px; }
-
-  .fixture-comp {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--apex-muted);
-    text-align: right;
-  }
-
-  /* SQUAD */
-  .squad { background: var(--apex-dark); }
-
-  .squad-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2px;
-  }
-
-  .player-card {
-    background: var(--apex-charcoal);
-    padding: 28px 20px 20px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-
-  .player-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--apex-red);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-
-  .player-card:hover::before { transform: scaleX(1); }
-  .player-card:hover { background: var(--apex-mid); }
-
-  .player-number {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 52px;
-    line-height: 1;
-    color: rgba(200,16,46,0.2);
-    position: absolute;
-    top: 12px;
-    right: 16px;
-  }
-
-  .player-pos {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--apex-red);
-    margin-bottom: 6px;
-  }
-
-  .player-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    letter-spacing: 1px;
-    color: var(--apex-light);
-    line-height: 1.1;
-    margin-bottom: 12px;
-  }
-
-  .player-nationality {
-    font-size: 12px;
-    color: var(--apex-muted);
-    font-style: italic;
-  }
-
-  /* TABLE */
-  .league-table { background: var(--apex-charcoal); }
-
-  .table-wrap { overflow-x: auto; }
-
-  table.standings {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 15px;
-  }
-
-  .standings th {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--apex-muted);
-    font-weight: 600;
-    padding: 12px 16px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .standings th:first-child,
-  .standings th:nth-child(2) { text-align: left; }
-
-  .standings td {
-    padding: 14px 16px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    color: rgba(244,240,232,0.8);
-  }
-
-  .standings td:first-child { color: var(--apex-muted); font-size: 13px; }
-  .standings td:nth-child(2) { text-align: left; font-weight: 600; letter-spacing: 0.5px; }
-
-  .standings tr.highlight td {
-    background: rgba(200,16,46,0.08);
-    color: var(--apex-light);
-  }
-
-  .standings tr.highlight td:nth-child(2) { color: var(--apex-red); }
-
-  .pts { font-family: 'Bebas Neue', sans-serif; font-size: 20px !important; color: var(--apex-light) !important; }
-
-  .form-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin: 0 1px;
-  }
-  .form-dot.w { background: #4CAF50; }
-  .form-dot.d { background: #888; }
-  .form-dot.l { background: var(--apex-red); }
-
-  /* NEWS */
-  .news { background: var(--apex-dark); }
-
-  .news-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr;
-    gap: 2px;
-  }
-
-  .news-card {
-    background: var(--apex-charcoal);
-    padding: 32px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .news-card:hover { background: var(--apex-mid); }
-
-  .news-card.featured { grid-row: span 2; padding: 40px 36px; }
-
-  .news-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--apex-red);
-  }
-
-  .news-headline {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 1px;
-    line-height: 1.1;
-    color: var(--apex-light);
-  }
-
-  .news-card.featured .news-headline { font-size: 38px; }
-  .news-card:not(.featured) .news-headline { font-size: 22px; }
-
-  .news-excerpt {
-    font-size: 14px;
-    color: rgba(244,240,232,0.55);
-    line-height: 1.6;
-    flex: 1;
-  }
-
-  .news-meta {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    letter-spacing: 1px;
-    color: var(--apex-muted);
-    margin-top: auto;
-  }
+  /* JOIN */
+  .join { background: var(--apex-charcoal); }
+  .join-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .join-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--apex-muted); }
+  .form-group input, .form-group select, .form-group textarea { background: var(--apex-mid); border: 1px solid rgba(255,255,255,0.08); color: var(--apex-light); font-family: 'Barlow', sans-serif; font-size: 15px; padding: 14px 16px; outline: none; transition: border-color 0.2s; width: 100%; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--apex-red); }
+  .form-group select option { background: var(--apex-mid); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-note { font-size: 13px; color: var(--apex-muted); font-style: italic; }
+  .join-info { display: flex; flex-direction: column; gap: 32px; }
+  .join-info-item { border-left: 3px solid var(--apex-red); padding-left: 20px; }
+  .join-info-item h4 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; color: var(--apex-light); margin-bottom: 6px; }
+  .join-info-item p { font-size: 14px; color: rgba(244,240,232,0.6); line-height: 1.6; }
+  .form-success { display: none; background: rgba(200,16,46,0.1); border: 1px solid var(--apex-red); padding: 24px; text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; color: var(--apex-light); }
 
   /* FOOTER */
-  footer {
-    background: #060606;
-    padding: 64px 48px 32px;
-    border-top: 1px solid var(--apex-border);
-  }
-
-  .footer-top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    margin-bottom: 32px;
-  }
-
+  footer { background: #060606; padding: 64px 48px 32px; border-top: 1px solid var(--apex-border); }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 32px; }
   .footer-brand { display: flex; flex-direction: column; gap: 16px; }
-
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 2px;
-    color: var(--apex-light);
-  }
-
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: var(--apex-light); }
   .footer-logo span { color: var(--apex-red); }
-
-  .footer-tagline {
-    font-size: 14px;
-    color: var(--apex-muted);
-    font-style: italic;
-    max-width: 240px;
-    line-height: 1.5;
-  }
-
-  .footer-col h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--apex-muted);
-    margin-bottom: 20px;
-  }
-
+  .footer-tagline { font-size: 14px; color: var(--apex-muted); font-style: italic; max-width: 260px; line-height: 1.5; }
+  .footer-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--apex-muted); margin-bottom: 20px; }
   .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-
-  .footer-col a {
-    font-size: 14px;
-    color: rgba(244,240,232,0.6);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .footer-col a { font-size: 14px; color: rgba(244,240,232,0.6); text-decoration: none; transition: color 0.2s; }
   .footer-col a:hover { color: var(--apex-light); }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    color: var(--apex-muted);
-    font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 1px;
-  }
-
-  .footer-socials {
-    display: flex;
-    gap: 24px;
-  }
-
-  .footer-socials a {
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--apex-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--apex-muted); font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px; }
+  .footer-socials { display: flex; gap: 24px; }
+  .footer-socials a { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--apex-muted); text-decoration: none; transition: color 0.2s; }
   .footer-socials a:hover { color: var(--apex-red); }
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  /* NON-OFFICIAL BANNER */
+  .unofficial-banner { background: var(--apex-gold); color: var(--apex-dark); text-align: center; padding: 10px 48px; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; position: fixed; top: 64px; left: 0; right: 0; z-index: 99; }
 
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* DIVIDER */
-  .red-divider {
-    width: 48px;
-    height: 3px;
-    background: var(--apex-red);
-    margin-bottom: 32px;
-  }
+  .hero { padding-top: 104px; }
 </style>
 </head>
 <body>
+
+<!-- UNOFFICIAL BANNER -->
+<div class="unofficial-banner">⚠ United Apex FC is a non-official grassroots club — not affiliated with the FA</div>
 
 <!-- NAV -->
 <nav>
@@ -672,12 +156,12 @@
   </a>
   <ul class="nav-links">
     <li><a href="#fixtures">Fixtures</a></li>
-    <li><a href="#squad">Squad</a></li>
-    <li><a href="#table">Table</a></li>
+    <li><a href="#age-groups">Age Groups</a></li>
+    <li><a href="#join">Join Us</a></li>
     <li><a href="#news">News</a></li>
     <li><a href="#club">Club</a></li>
   </ul>
-  <a href="#" class="nav-cta">Get Tickets</a>
+  <a href="#join" class="nav-cta">Join the Club</a>
 </nav>
 
 <!-- HERO -->
@@ -692,33 +176,30 @@
     <rect x="500" y="170" width="90" height="160" stroke="white" stroke-width="2" fill="none"/>
     <rect x="10" y="205" width="45" height="90" stroke="white" stroke-width="2" fill="none"/>
     <rect x="545" y="205" width="45" height="90" stroke="white" stroke-width="2" fill="none"/>
-    <circle cx="55" cy="250" r="30" stroke="white" stroke-width="2" fill="none"/>
-    <circle cx="545" cy="250" r="30" stroke="white" stroke-width="2" fill="none"/>
-    <line x1="300" y1="10" x2="300" y2="490" stroke="white" stroke-width="1" stroke-dasharray="8,6" opacity="0.3"/>
   </svg>
 
   <div class="hero-content">
-    <p class="hero-eyebrow">Founded 1987 · The Apex Arena</p>
+    <p class="hero-eyebrow">Grassroots · Littlehampton, West Sussex · Est. 2026</p>
     <h1 class="hero-title">Rise To The <span class="accent">Apex</span></h1>
-    <p class="hero-sub">Strength, unity, ambition. We play for the badge, for the city, for every one of you.</p>
+    <p class="hero-sub">A brand new youth football club for ages 10–18. Building something special from the ground up — want to be part of it?</p>
     <div class="hero-buttons">
-      <a href="#fixtures" class="btn-primary">Next Match</a>
-      <a href="#squad" class="btn-outline">Meet the Squad</a>
+      <a href="#join" class="btn-primary">Join Us</a>
+      <a href="#age-groups" class="btn-outline">Age Groups</a>
     </div>
   </div>
 
   <div class="hero-stats">
     <div class="hero-stat-item">
-      <div class="hero-stat-num">3<span>rd</span></div>
-      <div class="hero-stat-label">League Position</div>
+      <div class="hero-stat-num">2026</div>
+      <div class="hero-stat-label">Year Founded</div>
     </div>
     <div class="hero-stat-item">
-      <div class="hero-stat-num">14<span>W</span></div>
-      <div class="hero-stat-label">Season Wins</div>
+      <div class="hero-stat-num">10<span>–18</span></div>
+      <div class="hero-stat-label">Age Groups</div>
     </div>
     <div class="hero-stat-item">
-      <div class="hero-stat-num">37<span>+</span></div>
-      <div class="hero-stat-label">Years of History</div>
+      <div class="hero-stat-num">1<span>st</span></div>
+      <div class="hero-stat-label">Season Coming</div>
     </div>
   </div>
 </section>
@@ -730,251 +211,146 @@
       <p class="section-eyebrow">Schedule</p>
       <h2 class="section-title">Fixtures &amp; Results</h2>
     </div>
-    <a href="#" class="btn-outline">Full Schedule</a>
   </div>
+  <div class="reveal empty-state">
+    <div class="empty-state-title">No Fixtures Yet</div>
+    <div class="empty-state-sub">Check back once our first season gets underway</div>
+  </div>
+</section>
 
-  <div class="fixtures-list reveal">
-    <div class="fixture-row">
-      <div class="fixture-date">Sat 24 May · 15:00</div>
-      <div class="fixture-team fixture-home">Westgate United</div>
-      <div class="fixture-score loss">2 – 3</div>
-      <div class="fixture-team fixture-away">United Apex FC</div>
-      <div class="fixture-comp">League</div>
+<!-- AGE GROUPS -->
+<section class="age-groups" id="age-groups">
+  <div class="reveal">
+    <p class="section-eyebrow">Youth Football</p>
+    <h2 class="section-title">Age Groups</h2>
+    <div class="red-divider"></div>
+    <p style="font-size:15px; color:rgba(244,240,232,0.6); max-width:560px; margin-bottom:48px;">United Apex FC welcomes players aged 10 to 18 across all ability levels. We are building squads for every age group — no experience necessary, just passion for the game.</p>
+  </div>
+  <div class="age-grid reveal">
+    <div class="age-card">
+      <div class="age-label">Under 11s</div>
+      <div class="age-desc">Ages 10–11</div>
+      <div class="age-status">Recruiting</div>
     </div>
-    <div class="fixture-row">
-      <div class="fixture-date">Tue 20 May · 19:45</div>
-      <div class="fixture-team fixture-home">United Apex FC</div>
-      <div class="fixture-score win">4 – 1</div>
-      <div class="fixture-team fixture-away">Northcliff FC</div>
-      <div class="fixture-comp">Cup QF</div>
+    <div class="age-card">
+      <div class="age-label">Under 12s</div>
+      <div class="age-desc">Ages 11–12</div>
+      <div class="age-status">Recruiting</div>
     </div>
-    <div class="fixture-row">
-      <div class="fixture-date">Sat 17 May · 15:00</div>
-      <div class="fixture-team fixture-home">United Apex FC</div>
-      <div class="fixture-score win">2 – 0</div>
-      <div class="fixture-team fixture-away">Riverton City</div>
-      <div class="fixture-comp">League</div>
+    <div class="age-card">
+      <div class="age-label">Under 13s</div>
+      <div class="age-desc">Ages 12–13</div>
+      <div class="age-status">Recruiting</div>
     </div>
-    <div class="fixture-row upcoming">
-      <div class="fixture-date">Sat 7 Jun · 15:00</div>
-      <div class="fixture-team fixture-home">United Apex FC</div>
-      <div class="fixture-score upcoming">vs</div>
-      <div class="fixture-team fixture-away">FC Harland</div>
-      <div class="fixture-comp">League</div>
+    <div class="age-card">
+      <div class="age-label">Under 14s</div>
+      <div class="age-desc">Ages 13–14</div>
+      <div class="age-status">Recruiting</div>
     </div>
-    <div class="fixture-row">
-      <div class="fixture-date">Sat 14 Jun · 15:00</div>
-      <div class="fixture-team fixture-home">Thornwood AFC</div>
-      <div class="fixture-score upcoming">vs</div>
-      <div class="fixture-team fixture-away">United Apex FC</div>
-      <div class="fixture-comp">Cup SF</div>
+    <div class="age-card">
+      <div class="age-label">Under 15s</div>
+      <div class="age-desc">Ages 14–15</div>
+      <div class="age-status">Recruiting</div>
+    </div>
+    <div class="age-card">
+      <div class="age-label">Under 16s</div>
+      <div class="age-desc">Ages 15–16</div>
+      <div class="age-status">Recruiting</div>
+    </div>
+    <div class="age-card">
+      <div class="age-label">Under 17s</div>
+      <div class="age-desc">Ages 16–17</div>
+      <div class="age-status">Recruiting</div>
+    </div>
+    <div class="age-card">
+      <div class="age-label">Under 18s</div>
+      <div class="age-desc">Ages 17–18</div>
+      <div class="age-status">Recruiting</div>
     </div>
   </div>
 </section>
 
-<!-- SQUAD -->
-<section class="squad" id="squad">
+<!-- JOIN -->
+<section class="join" id="join">
   <div class="reveal">
-    <p class="section-eyebrow">2024/25 Season</p>
-    <h2 class="section-title">The Squad</h2>
+    <p class="section-eyebrow">Get Involved</p>
+    <h2 class="section-title">Join United Apex FC</h2>
     <div class="red-divider"></div>
   </div>
-
-  <div class="squad-grid reveal">
-    <div class="player-card">
-      <div class="player-number">1</div>
-      <div class="player-pos">Goalkeeper</div>
-      <div class="player-name">Marcus<br>Holden</div>
-      <div class="player-nationality">England</div>
+  <div class="join-inner reveal">
+    <div>
+      <div class="join-form">
+        <div class="form-group">
+          <label>Player's Full Name</label>
+          <input type="text" id="f-name" placeholder="e.g. Jamie Smith">
+        </div>
+        <div class="form-group">
+          <label>Age Group</label>
+          <select id="f-age">
+            <option value="">Select age group...</option>
+            <option>Under 11s (Age 10–11)</option>
+            <option>Under 12s (Age 11–12)</option>
+            <option>Under 13s (Age 12–13)</option>
+            <option>Under 14s (Age 13–14)</option>
+            <option>Under 15s (Age 14–15)</option>
+            <option>Under 16s (Age 15–16)</option>
+            <option>Under 17s (Age 16–17)</option>
+            <option>Under 18s (Age 17–18)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Parent / Guardian Name</label>
+          <input type="text" id="f-parent" placeholder="e.g. Sarah Smith">
+        </div>
+        <div class="form-group">
+          <label>Contact Email</label>
+          <input type="email" id="f-email" placeholder="e.g. sarah@email.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="f-phone" placeholder="e.g. 07700 900000">
+        </div>
+        <div class="form-group">
+          <label>Anything else? (optional)</label>
+          <textarea id="f-msg" placeholder="Position played, experience level, any questions..."></textarea>
+        </div>
+        <p class="form-note">* This is a non-official grassroots club. No fees apply to sign up — we'll be in touch to arrange a trial session.</p>
+        <button class="btn-primary" onclick="submitForm()" style="cursor:pointer; border:none; margin-top:8px;">Submit Interest</button>
+      </div>
+      <div class="form-success" id="form-success">
+        ✓ Thanks! We'll be in touch soon.
+      </div>
     </div>
-    <div class="player-card">
-      <div class="player-number">5</div>
-      <div class="player-pos">Centre Back</div>
-      <div class="player-name">Diego<br>Varela</div>
-      <div class="player-nationality">Spain</div>
+    <div class="join-info">
+      <div class="join-info-item">
+        <h4>Who Can Join?</h4>
+        <p>Any player aged 10–18 based in or around Littlehampton, West Sussex. All ability levels welcome — whether you've never played or train regularly.</p>
+      </div>
+      <div class="join-info-item">
+        <h4>Where Do We Train?</h4>
+        <p>We are currently scouting local grounds in the Littlehampton area. Training location will be confirmed once we have our first squads together.</p>
+      </div>
+      <div class="join-info-item">
+        <h4>Is It Free?</h4>
+        <p>Signing up costs nothing. Once the club is more established we may introduce small session fees to cover pitch hire, but we'll always keep it affordable.</p>
+      </div>
+      <div class="join-info-item">
+        <h4>Non-Official Club</h4>
+        <p>United Apex FC is a brand new grassroots club, not currently affiliated with the FA. We play friendly and casual matches while we build the club up.</p>
+      </div>
     </div>
-    <div class="player-card">
-      <div class="player-number">6</div>
-      <div class="player-pos">Centre Back</div>
-      <div class="player-name">Tobias<br>Kraft</div>
-      <div class="player-nationality">Germany</div>
-    </div>
-    <div class="player-card">
-      <div class="player-number">3</div>
-      <div class="player-pos">Left Back</div>
-      <div class="player-name">Jordan<br>Mwamba</div>
-      <div class="player-nationality">DR Congo</div>
-    </div>
-    <div class="player-card">
-      <div class="player-number">2</div>
-      <div class="player-pos">Right Back</div>
-      <div class="player-name">Aaron<br>Finch</div>
-      <div class="player-nationality">Australia</div>
-    </div>
-    <div class="player-card">
-      <div class="player-number">8</div>
-      <div class="player-pos">Midfielder</div>
-      <div class="player-name">Callum<br>Reid</div>
-      <div class="player-nationality">Scotland</div>
-    </div>
-    <div class="player-card">
-      <div class="player-number">4</div>
-      <div class="player-pos">Midfielder</div>
-      <div class="player-name">Luca<br>Ferretti</div>
-      <div class="player-nationality">Italy</div>
-    </div>
-    <div class="player-card">
-      <div class="player-number">10</div>
-      <div class="player-pos">Attacking Mid</div>
-      <div class="player-name">Emre<br>Yilmaz</div>
-      <div class="player-nationality">Türkiye</div>
-    </div>
-    <div class="player-card">
-      <div class="player-number">7</div>
-      <div class="player-pos">Right Wing</div>
-      <div class="player-name">Theo<br>Laurent</div>
-      <div class="player-nationality">France</div>
-    </div>
-    <div class="player-card">
-      <div class="player-number">11</div>
-      <div class="player-pos">Left Wing</div>
-      <div class="player-name">Kwame<br>Asante</div>
-      <div class="player-nationality">Ghana</div>
-    </div>
-    <div class="player-card">
-      <div class="player-number">9</div>
-      <div class="player-pos">Striker</div>
-      <div class="player-name">Viktor<br>Sorokin</div>
-      <div class="player-nationality">Ukraine</div>
-    </div>
-    <div class="player-card">
-      <div class="player-number">19</div>
-      <div class="player-pos">Striker</div>
-      <div class="player-name">Samuel<br>Okafor</div>
-      <div class="player-nationality">Nigeria</div>
-    </div>
-  </div>
-</section>
-
-<!-- LEAGUE TABLE -->
-<section class="league-table" id="table">
-  <div class="reveal">
-    <p class="section-eyebrow">Premier Division</p>
-    <h2 class="section-title">League Table</h2>
-  </div>
-  <div class="table-wrap reveal">
-    <table class="standings">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Club</th>
-          <th>P</th>
-          <th>W</th>
-          <th>D</th>
-          <th>L</th>
-          <th>GD</th>
-          <th>Form</th>
-          <th>Pts</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Thornwood AFC</td>
-          <td>33</td><td>21</td><td>6</td><td>6</td><td>+28</td>
-          <td>
-            <span class="form-dot w"></span><span class="form-dot w"></span><span class="form-dot d"></span><span class="form-dot w"></span><span class="form-dot w"></span>
-          </td>
-          <td class="pts">69</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>FC Harland</td>
-          <td>33</td><td>19</td><td>7</td><td>7</td><td>+19</td>
-          <td>
-            <span class="form-dot w"></span><span class="form-dot l"></span><span class="form-dot w"></span><span class="form-dot d"></span><span class="form-dot w"></span>
-          </td>
-          <td class="pts">64</td>
-        </tr>
-        <tr class="highlight">
-          <td>3</td>
-          <td>United Apex FC</td>
-          <td>33</td><td>18</td><td>7</td><td>8</td><td>+17</td>
-          <td>
-            <span class="form-dot l"></span><span class="form-dot w"></span><span class="form-dot w"></span><span class="form-dot w"></span><span class="form-dot d"></span>
-          </td>
-          <td class="pts">61</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Westgate United</td>
-          <td>33</td><td>16</td><td>9</td><td>8</td><td>+11</td>
-          <td>
-            <span class="form-dot w"></span><span class="form-dot d"></span><span class="form-dot w"></span><span class="form-dot l"></span><span class="form-dot d"></span>
-          </td>
-          <td class="pts">57</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>Riverton City</td>
-          <td>33</td><td>14</td><td>8</td><td>11</td><td>+4</td>
-          <td>
-            <span class="form-dot l"></span><span class="form-dot l"></span><span class="form-dot w"></span><span class="form-dot d"></span><span class="form-dot w"></span>
-          </td>
-          <td class="pts">50</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>Northcliff FC</td>
-          <td>33</td><td>11</td><td>9</td><td>13</td><td>-8</td>
-          <td>
-            <span class="form-dot l"></span><span class="form-dot d"></span><span class="form-dot l"></span><span class="form-dot l"></span><span class="form-dot d"></span>
-          </td>
-          <td class="pts">42</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 </section>
 
 <!-- NEWS -->
-<section class="news" id="news">
+<section style="background: var(--apex-dark); padding: 100px 48px;" id="news">
   <div class="reveal">
     <p class="section-eyebrow">Latest</p>
     <h2 class="section-title">Club News</h2>
   </div>
-
-  <div class="news-grid reveal">
-    <a href="#" class="news-card featured">
-      <div class="news-tag">Match Report</div>
-      <h3 class="news-headline">Sorokin Hat-Trick Fires Apex to Cup Semi-Final</h3>
-      <p class="news-excerpt">Viktor Sorokin produced a stunning individual display against Northcliff FC, netting three goals in 22 second-half minutes to secure an emphatic quarter-final victory and set up a mouthwatering last-four tie against rivals Thornwood.</p>
-      <div class="news-meta">20 May 2025 · Cup Quarter-Final</div>
-    </a>
-    <a href="#" class="news-card">
-      <div class="news-tag">Transfer</div>
-      <h3 class="news-headline">Club Signs Young Sensation Kwame Asante</h3>
-      <p class="news-excerpt">The Ghanaian winger arrives from FC Accra Stars on a four-year deal.</p>
-      <div class="news-meta">18 May 2025</div>
-    </a>
-    <a href="#" class="news-card">
-      <div class="news-tag">Interview</div>
-      <h3 class="news-headline">"We Believe in the Title Race" — Manager Quinn</h3>
-      <p class="news-excerpt">Head coach Brendan Quinn speaks on closing the gap at the top.</p>
-      <div class="news-meta">16 May 2025</div>
-    </a>
-    <a href="#" class="news-card">
-      <div class="news-tag">Community</div>
-      <h3 class="news-headline">Apex Foundation Opens New Youth Training Hub</h3>
-      <p class="news-excerpt">Over 200 local kids will benefit from the new facility launching this summer.</p>
-      <div class="news-meta">12 May 2025</div>
-    </a>
-    <a href="#" class="news-card">
-      <div class="news-tag">Kit</div>
-      <h3 class="news-headline">2025/26 Home Kit Revealed — Bold New Era</h3>
-      <p class="news-excerpt">The new strip pays homage to the club's founding colours with a modern edge.</p>
-      <div class="news-meta">9 May 2025</div>
-    </a>
+  <div class="reveal empty-state">
+    <div class="empty-state-title">No News Yet</div>
+    <div class="empty-state-sub">Stories will appear here as the club grows</div>
   </div>
 </section>
 
@@ -983,42 +359,41 @@
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo">United <span>Apex</span> FC</div>
-      <p class="footer-tagline">"Rise to the Apex" — Founded 2026, The Apex Arena, Capacity 24,500.</p>
+      <p class="footer-tagline">"Rise to the Apex" — Grassroots youth football club, Littlehampton, West Sussex. Founded 2026. Ages 10–18. Non-FA affiliated.</p>
     </div>
     <div class="footer-col">
       <h4>Club</h4>
       <ul>
-        <li><a href="#">History</a></li>
-        <li><a href="#">Management</a></li>
-        <li><a href="#">Stadium</a></li>
-        <li><a href="#">Partners</a></li>
+        <li><a href="#age-groups">Age Groups</a></li>
+        <li><a href="#join">Join Us</a></li>
+        <li><a href="#fixtures">Fixtures</a></li>
+        <li><a href="#news">News</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Fans</h4>
+      <h4>Info</h4>
       <ul>
-        <li><a href="#">Tickets</a></li>
-        <li><a href="#">Membership</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Away Travel</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <ul>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Media</a></li>
-        <li><a href="#">Careers</a></li>
+        <li><a href="#">About the Club</a></li>
+        <li><a href="#">Training Info</a></li>
         <li><a href="#">Safeguarding</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">YouTube</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 United Apex FC. All rights reserved.</span>
+    <span>© 2026 United Apex FC · Grassroots · Non-Official · Littlehampton</span>
     <div class="footer-socials">
-      <a href="#">Twitter</a>
       <a href="#">Instagram</a>
-      <a href="#">YouTube</a>
+      <a href="#">Twitter</a>
       <a href="#">TikTok</a>
     </div>
   </div>
@@ -1034,6 +409,18 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  function submitForm() {
+    const name = document.getElementById('f-name').value;
+    const age = document.getElementById('f-age').value;
+    const email = document.getElementById('f-email').value;
+    if (!name || !age || !email) {
+      alert('Please fill in your name, age group and email.');
+      return;
+    }
+    document.querySelector('.join-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
 </script>
 </body>
 </html>
