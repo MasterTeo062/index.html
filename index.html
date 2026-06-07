@@ -356,6 +356,14 @@ footer{background:#050505;padding:36px 20px 28px;border-top:1px solid var(--bord
 .footer-col a{font-size:13px;color:rgba(244,240,232,0.4);text-decoration:none;}
 .footer-bottom{font-size:11px;color:rgba(244,240,232,0.15);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;border-top:1px solid rgba(255,255,255,0.04);padding-top:16px;}
 
+/* ── INFO CARDS ── */
+.info-cards{display:flex;flex-direction:column;gap:12px;}
+.info-card{background:var(--charcoal);border:1px solid rgba(255,255,255,0.05);padding:20px 18px;border-left:3px solid rgba(212,160,23,0.3);transition:border-left-color 0.2s,background 0.2s;}
+.info-card:active{border-left-color:var(--gold);background:var(--mid);}
+.info-card-icon{font-size:22px;margin-bottom:8px;}
+.info-card-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--light);margin-bottom:6px;}
+.info-card-body{font-size:13px;color:rgba(244,240,232,0.55);line-height:1.7;}
+
 /* ── REVEAL ANIMATIONS ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1);}
 .reveal.visible{opacity:1;transform:none;}
@@ -483,9 +491,44 @@ footer{background:#050505;padding:36px 20px 28px;border-top:1px solid var(--bord
     <p class="section-eyebrow reveal">Schedule</p>
     <h2 class="section-title reveal">Fixtures &amp; Results</h2>
     <div class="gold-divider reveal"></div>
+    <p class="section-intro reveal">Our first season hasn't kicked off yet — but when it does, every match, result, and scoreline will be right here. We'll be playing friendly fixtures first to bed the squads in before we look at league football.</p>
+
     <div class="empty-box reveal d1">
-      <div class="empty-box-title">No Fixtures Scheduled</div>
-      <div class="empty-box-sub">Our first matches will be announced once squads are confirmed</div>
+      <div class="empty-box-title">No Fixtures Scheduled Yet</div>
+      <div class="empty-box-sub">Check back once our squads are confirmed</div>
+    </div>
+
+    <div style="margin-top:36px;" class="reveal d2">
+      <p class="section-eyebrow" style="margin-bottom:16px;">What to expect</p>
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-card-icon">🗓️</div>
+          <div class="info-card-title">Friendly Matches First</div>
+          <div class="info-card-body">Before we enter any leagues, we'll arrange friendly games against other local grassroots clubs so every player gets game time and we can figure out formations.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">📍</div>
+          <div class="info-card-title">Home Games at Brookfield</div>
+          <div class="info-card-body">Our home matches will be played at Brookfield, Worthing Road, Littlehampton. Open for anyone to come and watch — no ticket needed.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">📲</div>
+          <div class="info-card-title">Updates Posted Here</div>
+          <div class="info-card-body">Once fixtures are confirmed they'll appear on this page with date, time, opponent, and location. Results and scorers will also be posted here after every game.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🏆</div>
+          <div class="info-card-title">League Football in Future</div>
+          <div class="info-card-body">Once we're FA affiliated and have stable squads, we plan to enter the local youth leagues through Sussex County FA — competing properly against other clubs.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:36px;padding:24px;background:rgba(212,160,23,0.06);border:1px solid rgba(212,160,23,0.2);" class="reveal d3">
+      <p class="section-eyebrow" style="margin-bottom:8px;">First Training Session</p>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--light);">Tuesday 9th June 2026 · 17:00</p>
+      <p style="font-size:14px;color:rgba(244,240,232,0.55);margin-top:8px;">Brookfield, Worthing Road, Littlehampton. This is where it all starts. Show up, bring boots, and let's get going.</p>
+      <button class="btn-gold" onclick="showPage('brookfield')" style="margin-top:16px;width:100%;border:none;cursor:pointer;">Get Directions →</button>
     </div>
   </div>
 </div>
@@ -498,7 +541,8 @@ footer{background:#050505;padding:36px 20px 28px;border-top:1px solid var(--bord
     <p class="section-eyebrow reveal">Youth Football · Ages 10–18</p>
     <h2 class="section-title reveal">Age Groups</h2>
     <div class="gold-divider reveal"></div>
-    <p class="section-intro reveal">All abilities welcome. No experience required — just passion for the game.</p>
+    <p class="section-intro reveal">United Apex FC is open to every player aged 10 to 18 across all eight youth age groups. We don't care if you've played for years or never kicked a ball — if you want to play, there's a place for you here.</p>
+
     <div class="age-grid reveal d1">
       <div class="age-card"><div class="age-label">U11s</div><div class="age-desc">Ages 10–11</div><div class="age-badge">Recruiting</div></div>
       <div class="age-card"><div class="age-label">U12s</div><div class="age-desc">Ages 11–12</div><div class="age-badge">Recruiting</div></div>
@@ -508,6 +552,38 @@ footer{background:#050505;padding:36px 20px 28px;border-top:1px solid var(--bord
       <div class="age-card"><div class="age-label">U16s</div><div class="age-desc">Ages 15–16</div><div class="age-badge">Recruiting</div></div>
       <div class="age-card"><div class="age-label">U17s</div><div class="age-desc">Ages 16–17</div><div class="age-badge">Recruiting</div></div>
       <div class="age-card"><div class="age-label">U18s</div><div class="age-desc">Ages 17–18</div><div class="age-badge">Recruiting</div></div>
+    </div>
+
+    <div style="margin-top:36px;" class="reveal d2">
+      <p class="section-eyebrow" style="margin-bottom:16px;">How it works</p>
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-card-icon">✅</div>
+          <div class="info-card-title">All Abilities Welcome</div>
+          <div class="info-card-body">Whether you've played since you were tiny or you've never been on a pitch before, we welcome you. United Apex FC is about developing players, not just picking the best ones.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">👟</div>
+          <div class="info-card-title">What to Bring</div>
+          <div class="info-card-body">Football boots or trainers, a water bottle, and a good attitude. That's genuinely all you need to come to your first session. No kit required to start.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">👨‍👩‍👦</div>
+          <div class="info-card-title">Parents Welcome</div>
+          <div class="info-card-body">Parents and guardians are always welcome to watch sessions at Brookfield. We believe in keeping families involved and informed about everything happening at the club.</div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">📋</div>
+          <div class="info-card-title">Trial Sessions</div>
+          <div class="info-card-body">Every new player starts with a few trial sessions so both they and we can see how things fit. After that we'll confirm their place in the squad and get them properly registered.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;padding:24px;background:rgba(200,16,46,0.07);border:1px solid rgba(200,16,46,0.2);" class="reveal d3">
+      <p class="section-eyebrow" style="margin-bottom:8px;">Ready to sign up?</p>
+      <p style="font-size:14px;color:rgba(244,240,232,0.6);margin-bottom:16px;line-height:1.7;">Fill in the sign-up form and we'll be in touch about your first session. Takes less than two minutes.</p>
+      <button class="btn-gold" onclick="showPage('join')" style="width:100%;border:none;cursor:pointer;">Join the Club →</button>
     </div>
   </div>
 </div>
@@ -520,16 +596,41 @@ footer{background:#050505;padding:36px 20px 28px;border-top:1px solid var(--bord
     <p class="section-eyebrow reveal">Training Ground</p>
     <h2 class="section-title reveal">Brookfield</h2>
     <div class="gold-divider reveal"></div>
+    <p class="section-intro reveal">Brookfield on Worthing Road is our training base while we get the club off the ground. It's a large open green space in Littlehampton — free to use, no booking required, and easy to get to from across town.</p>
+
     <div class="brook-map reveal d1">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2517.5!2d-0.5462!3d50.8178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTDCsDQ5JzA0LjEiTiAwwrAzMic0Ni4zIlc!5e0!3m2!1sen!2suk!4v1" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="brook-badge reveal d2">📍 Worthing Road, Littlehampton, BN17</div>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=Brookfield+Park+Littlehampton+BN17" target="_blank" class="btn-gold reveal d2" style="display:block;text-align:center;margin-bottom:24px;text-decoration:none;">📍 Get Directions →</a>
-    <div class="brook-stats reveal d2">
-      <div class="brook-stat"><h4>Open Access</h4><p>No booking required for casual training. Just show up and play.</p></div>
-      <div class="brook-stat"><h4>Central Location</h4><p>Easily accessible from across Littlehampton by foot or transport.</p></div>
-      <div class="brook-stat"><h4>Temporary Home</h4><p>We plan to move to a booked pitch once squads are established.</p></div>
-      <div class="brook-stat"><h4>First Session</h4><p>Tuesday 9th June 2026 · 17:00 · Turn up, bring boots.</p></div>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Brookfield+Park+Littlehampton+BN17" target="_blank" class="btn-gold reveal d2" style="display:block;text-align:center;margin-bottom:32px;text-decoration:none;">📍 Get Directions →</a>
+
+    <div class="info-cards reveal d2">
+      <div class="info-card">
+        <div class="info-card-icon">🟢</div>
+        <div class="info-card-title">No Booking Needed</div>
+        <div class="info-card-body">Brookfield is a public open space — no need to call ahead or reserve anything. Just show up at the right time and we'll be there.</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🚶</div>
+        <div class="info-card-title">Easy to Reach</div>
+        <div class="info-card-body">Located on Worthing Road, Brookfield is walkable from most parts of Littlehampton and close to local bus routes. Parking is also available nearby.</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">⚽</div>
+        <div class="info-card-title">Grass Pitches</div>
+        <div class="info-card-body">Brookfield has large open grass areas that are perfect for small-sided games, drills, and full training sessions. Plenty of room for all age groups.</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">🏗️</div>
+        <div class="info-card-title">Temporary Home</div>
+        <div class="info-card-body">As we grow and get FA affiliated, we plan to secure a permanent booked pitch. Brookfield is where we start — our first proper home will come in time.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;padding:24px;background:rgba(212,160,23,0.06);border:1px solid rgba(212,160,23,0.2);" class="reveal d3">
+      <p class="section-eyebrow" style="margin-bottom:8px;">First Session Details</p>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--light);">Tuesday 9th June 2026 · 17:00</p>
+      <p style="font-size:14px;color:rgba(244,240,232,0.55);margin-top:8px;line-height:1.7;">Meet at Brookfield, Worthing Road. Look for the group in red. Bring boots or trainers, water, and yourself. No kit required. All ages can come along.</p>
     </div>
   </div>
 </div>
@@ -542,25 +643,34 @@ footer{background:#050505;padding:36px 20px 28px;border-top:1px solid var(--bord
     <p class="section-eyebrow reveal">Be Part of History</p>
     <h2 class="section-title reveal">Founding Members</h2>
     <div class="gold-divider reveal"></div>
+    <p class="section-intro reveal">United Apex FC was founded in 2026 with nothing but an idea and a belief that Littlehampton deserved its own youth football club built properly from the ground up. Founding members are the people who show up before it's easy — and they'll always be remembered for it.</p>
+
     <div class="founding-counter reveal d1">
       <div class="founding-num" id="founding-count">0</div>
       <div class="founding-num-label">Founding Members Signed Up</div>
       <div class="founding-spots">50</div>
       <div class="founding-spots-sub">Total Spots Available</div>
     </div>
+
     <div class="founding-body reveal d2">
-      <p>United Apex FC is brand new. We have no history yet — which means you can be part of making it. Founding members are the first people to sign up, the ones who believed before anyone else did.</p>
-      <p style="color:var(--gold);font-style:italic;font-size:13px;">Only 50 founding member spots available. Once they're gone, they're gone.</p>
-      <p class="section-eyebrow" style="margin-top:24px;margin-bottom:12px;">What you get</p>
+      <p style="font-size:15px;color:rgba(244,240,232,0.6);line-height:1.8;margin-bottom:16px;">When we win our first trophy, play our first official match, or look back at how this all started — founding members will be the names at the top of the list. This is your chance to be part of something from the very beginning.</p>
+      <p style="color:var(--gold);font-style:italic;font-size:13px;margin-bottom:24px;">⚡ Only 50 founding member spots available. First come, first served.</p>
+
+      <p class="section-eyebrow" style="margin-bottom:12px;">What founding members get</p>
       <div class="founding-perks">
-        <div class="founding-perk"><span class="founding-perk-icon">🏅</span><span class="founding-perk-text">Your name recorded in club history</span></div>
-        <div class="founding-perk"><span class="founding-perk-icon">⚡</span><span class="founding-perk-text">First priority when squads are announced</span></div>
-        <div class="founding-perk"><span class="founding-perk-icon">📣</span><span class="founding-perk-text">Direct updates before anyone else</span></div>
-        <div class="founding-perk"><span class="founding-perk-icon">🎽</span><span class="founding-perk-text">Founding member recognition on club materials</span></div>
-        <div class="founding-perk"><span class="founding-perk-icon">🤝</span><span class="founding-perk-text">Help shape the club from day one</span></div>
+        <div class="founding-perk"><span class="founding-perk-icon">🏅</span><span class="founding-perk-text">Your name permanently recorded in club history as a founder</span></div>
+        <div class="founding-perk"><span class="founding-perk-icon">⚡</span><span class="founding-perk-text">First priority placement when squads are officially announced</span></div>
+        <div class="founding-perk"><span class="founding-perk-icon">📣</span><span class="founding-perk-text">Direct club updates before they go public anywhere</span></div>
+        <div class="founding-perk"><span class="founding-perk-icon">🎽</span><span class="founding-perk-text">Recognised as a founding member on all official club materials</span></div>
+        <div class="founding-perk"><span class="founding-perk-icon">🤝</span><span class="founding-perk-text">Opportunity to help shape the club's direction from day one</span></div>
+        <div class="founding-perk"><span class="founding-perk-icon">🗓️</span><span class="founding-perk-text">Invited to the first ever United Apex FC training session</span></div>
       </div>
-      <br>
-      <button class="btn-gold" onclick="showPage('join')" style="width:100%;margin-top:8px;">Claim Your Spot →</button>
+
+      <div style="margin-top:28px;padding:20px;background:rgba(212,160,23,0.06);border-left:3px solid var(--gold);">
+        <p style="font-size:14px;color:rgba(244,240,232,0.6);line-height:1.7;">This club belongs to everyone who helps build it. Whether you're a player, a parent, or just someone who believes in what we're doing — founding membership is open to all. Just tick the box when you sign up.</p>
+      </div>
+
+      <button class="btn-gold" onclick="showPage('join')" style="width:100%;border:none;cursor:pointer;margin-top:24px;">Claim Your Founding Spot →</button>
     </div>
   </div>
 </div>
@@ -573,7 +683,7 @@ footer{background:#050505;padding:36px 20px 28px;border-top:1px solid var(--bord
     <p class="section-eyebrow reveal">Visual Identity</p>
     <h2 class="section-title reveal">Gallery</h2>
     <div class="gold-divider reveal"></div>
-    <p class="section-intro reveal">Photos and videos will fill this gallery as the club comes to life.</p>
+    <p class="section-intro reveal">We're brand new so there aren't match photos yet — but our identity is already built. As sessions happen and matches get played, this gallery will fill up fast.</p>
     <div class="gallery-grid reveal d1">
       <div class="gallery-item wide" style="background:linear-gradient(135deg,#111 0%,#1a0a0f 100%);">
         <div class="gallery-inner">
@@ -594,15 +704,21 @@ footer{background:#050505;padding:36px 20px 28px;border-top:1px solid var(--bord
         <div class="gallery-overlay"><div class="gallery-caption">Club Crest — Est. 2026</div></div>
       </div>
       <div class="gallery-item" style="background:linear-gradient(135deg,#C8102E,#8B0B1F);">
-        <div class="gallery-inner"><div class="gallery-ph"><div style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:3px;color:rgba(244,240,232,0.15);">CRIMSON</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:3px;color:rgba(244,240,232,0.2);text-transform:uppercase;">#C8102E</div></div></div>
-        <div class="gallery-overlay"><div class="gallery-caption">Primary — Crimson</div></div>
+        <div class="gallery-inner"><div class="gallery-ph"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:3px;color:rgba(244,240,232,0.2);">CRIMSON</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:3px;color:rgba(244,240,232,0.25);text-transform:uppercase;margin-top:4px;">#C8102E</div></div></div>
+        <div class="gallery-overlay"><div class="gallery-caption">Primary Colour</div></div>
       </div>
       <div class="gallery-item" style="background:linear-gradient(135deg,#D4A017,#8B6800);">
-        <div class="gallery-inner"><div class="gallery-ph"><div style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:3px;color:rgba(0,0,0,0.2);">GOLD</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:3px;color:rgba(0,0,0,0.25);text-transform:uppercase;">#D4A017</div></div></div>
-        <div class="gallery-overlay"><div class="gallery-caption">Secondary — Gold</div></div>
+        <div class="gallery-inner"><div class="gallery-ph"><div style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:3px;color:rgba(0,0,0,0.2);">GOLD</div><div style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:3px;color:rgba(0,0,0,0.25);text-transform:uppercase;margin-top:4px;">#D4A017</div></div></div>
+        <div class="gallery-overlay"><div class="gallery-caption">Secondary Colour</div></div>
       </div>
-      <div class="gallery-item"><div class="gallery-inner" style="background:var(--mid);"><div class="gallery-ph"><div class="gallery-ph-icon">📸</div><div class="gallery-ph-label">Team Photo</div></div></div></div>
-      <div class="gallery-item"><div class="gallery-inner" style="background:var(--mid);"><div class="gallery-ph"><div class="gallery-ph-icon">⚽</div><div class="gallery-ph-label">Training</div></div></div></div>
+      <div class="gallery-item"><div class="gallery-inner" style="background:var(--mid);"><div class="gallery-ph"><div class="gallery-ph-icon">📸</div><div class="gallery-ph-label">Training Photos</div><div style="font-size:9px;color:rgba(244,240,232,0.08);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;margin-top:4px;">Coming Soon</div></div></div></div>
+      <div class="gallery-item"><div class="gallery-inner" style="background:var(--mid);"><div class="gallery-ph"><div class="gallery-ph-icon">⚽</div><div class="gallery-ph-label">Match Day</div><div style="font-size:9px;color:rgba(244,240,232,0.08);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;margin-top:4px;">Coming Soon</div></div></div></div>
+      <div class="gallery-item"><div class="gallery-inner" style="background:var(--mid);"><div class="gallery-ph"><div class="gallery-ph-icon">🎽</div><div class="gallery-ph-label">Kit Reveal</div><div style="font-size:9px;color:rgba(244,240,232,0.08);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;margin-top:4px;">Coming Soon</div></div></div></div>
+      <div class="gallery-item"><div class="gallery-inner" style="background:var(--mid);"><div class="gallery-ph"><div class="gallery-ph-icon">🏆</div><div class="gallery-ph-label">First Trophy</div><div style="font-size:9px;color:rgba(244,240,232,0.08);font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;margin-top:4px;">One Day...</div></div></div></div>
+    </div>
+    <div style="margin-top:28px;padding:20px;background:rgba(200,16,46,0.06);border:1px solid rgba(200,16,46,0.15);" class="reveal d2">
+      <p class="section-eyebrow" style="margin-bottom:8px;">Got Photos or Videos?</p>
+      <p style="font-size:14px;color:rgba(244,240,232,0.55);line-height:1.7;">If you come to a session or a match and grab a photo or clip, send it to us and we'll add it here. This gallery belongs to everyone at the club.</p>
     </div>
   </div>
 </div>
@@ -615,17 +731,27 @@ footer{background:#050505;padding:36px 20px 28px;border-top:1px solid var(--bord
     <p class="section-eyebrow reveal">Video Content</p>
     <h2 class="section-title reveal">YouTube Channel</h2>
     <div class="gold-divider reveal"></div>
+    <p class="section-intro reveal">Our YouTube channel will be the home of everything United Apex FC on video — from the very first training session all the way to match highlights, player features and the full story of building this club from scratch.</p>
     <div class="yt-frame reveal d1">
       <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-      <div class="yt-label-bottom">Channel launching soon</div>
+      <div class="yt-label-bottom">Channel launching soon — subscribe to be first</div>
     </div>
     <div class="yt-info reveal d2">
       <h3>Subscribe Before We Launch</h3>
-      <p>Highlights, training clips, behind-the-scenes, and the full story of building United Apex FC from zero. Subscribe now so you don't miss day one.</p>
-      <a href="#" class="yt-subscribe">
+      <p style="font-size:14px;color:rgba(244,240,232,0.55);line-height:1.75;margin-bottom:20px;">We'll be posting content from the very first day we step on the pitch. Subscribe now and you won't miss a single moment of United Apex FC's story from the very beginning.</p>
+      <a href="#" class="yt-subscribe" style="display:inline-flex;margin-bottom:28px;">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
         Subscribe on YouTube
       </a>
+    </div>
+    <div class="reveal d3">
+      <p class="section-eyebrow" style="margin-bottom:16px;">What we'll be posting</p>
+      <div class="info-cards">
+        <div class="info-card"><div class="info-card-icon">🎬</div><div class="info-card-title">Match Highlights</div><div class="info-card-body">Every match edited into a highlight reel — goals, saves, assists and the best moments from each game across all age groups.</div></div>
+        <div class="info-card"><div class="info-card-icon">🏃</div><div class="info-card-title">Training Clips</div><div class="info-card-body">Behind the scenes of sessions at Brookfield — drills, skills, and the growth of our players from first session to matchday.</div></div>
+        <div class="info-card"><div class="info-card-icon">🎙️</div><div class="info-card-title">Player Features</div><div class="info-card-body">Getting to know the players and families behind United Apex FC. The stories that make this club more than just a team.</div></div>
+        <div class="info-card"><div class="info-card-icon">📖</div><div class="info-card-title">The Club Story</div><div class="info-card-body">A documentary-style series following the journey of building United Apex FC from day zero — every step captured on camera.</div></div>
+      </div>
     </div>
   </div>
 </div>
@@ -638,15 +764,30 @@ footer{background:#050505;padding:36px 20px 28px;border-top:1px solid var(--bord
     <p class="section-eyebrow reveal">Honours</p>
     <h2 class="section-title reveal">Trophy Cabinet</h2>
     <div class="gold-divider reveal"></div>
+    <p class="section-intro reveal">Every great club starts with an empty cabinet. This is ours. Every slot here is waiting to be filled — and they will be, one by one, as United Apex FC grows.</p>
     <div class="trophy-cabinet reveal d1">
       <div class="trophy-shelf">
-        <div class="trophy-slot"><div class="trophy-cup">🏆</div><div class="trophy-slot-label">League</div></div>
+        <div class="trophy-slot"><div class="trophy-cup">🏆</div><div class="trophy-slot-label">League Title</div></div>
         <div class="trophy-slot"><div class="trophy-cup">🏆</div><div class="trophy-slot-label">Cup</div></div>
         <div class="trophy-slot"><div class="trophy-cup">🏆</div><div class="trophy-slot-label">Shield</div></div>
         <div class="trophy-slot"><div class="trophy-cup">🏆</div><div class="trophy-slot-label">Plate</div></div>
       </div>
       <div class="trophy-empty-text">The Cabinet is Empty — For Now</div>
       <div class="trophy-empty-sub">Every great club starts here. Our first trophy is waiting.</div>
+    </div>
+    <div style="margin-top:32px;" class="reveal d2">
+      <p class="section-eyebrow" style="margin-bottom:16px;">The Road to Silverware</p>
+      <div class="info-cards">
+        <div class="info-card"><div class="info-card-icon">1️⃣</div><div class="info-card-title">Step One: First Session</div><div class="info-card-body">Tuesday 9th June 2026 at Brookfield. Before any trophy, there's a first training session. That's where it all begins — just turning up and playing.</div></div>
+        <div class="info-card"><div class="info-card-icon">2️⃣</div><div class="info-card-title">Step Two: Build the Squads</div><div class="info-card-body">Sign players across all age groups, run trial sessions, and put together teams that can grow, improve and compete together over time.</div></div>
+        <div class="info-card"><div class="info-card-icon">3️⃣</div><div class="info-card-title">Step Three: Play Friendlies</div><div class="info-card-body">Arrange friendly matches against other local grassroots clubs so players get real game experience before we enter competitive football.</div></div>
+        <div class="info-card"><div class="info-card-icon">4️⃣</div><div class="info-card-title">Step Four: Go Official</div><div class="info-card-body">Get FA affiliated through Sussex County FA, enter official youth leagues, and start competing for real trophies. Then this cabinet starts filling up.</div></div>
+      </div>
+    </div>
+    <div style="margin-top:28px;padding:24px;background:rgba(212,160,23,0.06);border:1px solid rgba(212,160,23,0.2);text-align:center;" class="reveal d3">
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--light);margin-bottom:8px;">Want to be the one who wins it?</p>
+      <p style="font-size:13px;color:rgba(244,240,232,0.5);margin-bottom:16px;">Sign up now and be part of the team that puts the first trophy in this cabinet.</p>
+      <button class="btn-gold" onclick="showPage('join')" style="border:none;cursor:pointer;">Join the Club →</button>
     </div>
   </div>
 </div>
